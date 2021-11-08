@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="312.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.blacklemon.controller.RegisterController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <TextField fx:id="fname_tf" promptText="First name">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </TextField>
+        <TextField fx:id="lname_tf" layoutX="30.0" layoutY="159.0" promptText="Last name" />
+        <TextField fx:id="emali_tf" layoutX="30.0" layoutY="211.0" onKeyTyped="#checkEmailUsed" promptText="E-mail">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </TextField>
+      <Label fx:id="email_check" prefHeight="22.0" prefWidth="272.0" textAlignment="CENTER" />
+        <PasswordField fx:id="pass_tf" layoutX="30.0" layoutY="277.0" promptText="Password" />
+        <PasswordField fx:id="repass_tf" promptText="Re-password">
+            <VBox.margin>
+                <Insets bottom="30.0" />
+            </VBox.margin>
+        </PasswordField>
+        <Button fx:id="register_btn" mnemonicParsing="false" onAction="#registerUser" text="Register" />
+        <Button fx:id="login_btn" mnemonicParsing="false" onAction="#switchToLogin" text="Login" />
+    </children>
+</VBox>
