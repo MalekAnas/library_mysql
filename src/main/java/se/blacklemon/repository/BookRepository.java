@@ -1,7 +1,7 @@
 package se.blacklemon.repository;
 
-import se.blacklemon.model.Classification.Classification;
-import se.blacklemon.model.library.Book;
+import se.blacklemon.model.library.Classification.Classification;
+import se.blacklemon.model.library.book.Book;
 
 import java.util.List;
 

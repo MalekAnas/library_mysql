@@ -1,6 +1,6 @@
-package se.blacklemon.model.library;
+package se.blacklemon.model.library.book;
 
-import se.blacklemon.model.Classification.Classification;
+import se.blacklemon.model.library.Classification.Classification;
 
 import static se.blacklemon.utils.UniqueIdGenerator.createUniqueId;
 

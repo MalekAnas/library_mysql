@@ -11,6 +11,11 @@ public class UserBuilder<SELF extends UserBuilder<SELF>> {
         return self();
     }
 
+    public SELF withUniqueId(String id) {
+        user.setId(id);
+        return self();
+    }
+
     public SELF withFirstName(String firstName) {
         user.setFirstName(firstName);
         return self();
@@ -26,7 +31,7 @@ public class UserBuilder<SELF extends UserBuilder<SELF>> {
         return self();
     }
 
-    public SELF withPassword(String password) {
+    public SELF withEncodedPassword(String password) {
         user.setPassword(password);
         return self();
     }

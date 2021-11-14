@@ -31,41 +31,29 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User getUser(String emailToken) throws SQLException {
-        String firstName = "";
-        String lastName = "";
-        String email = "";
-        String password = "";
-        String id = "";
+        User user = new User();
+
         boolean staff = false;
         String fetchUserName = "SELECT * FROM users WHERE (email= ?) ";
         PreparedStatement ps = DatabaseConfig.prepareStatement(fetchUserName);
 
 
-        ps.setString(1, emailToken);
+        ps.setString(1, emailToken.toLowerCase());
 
         ResultSet rs = ps.executeQuery();
         if (!rs.isBeforeFirst()) {
             System.out.println("no user found");
         }
         while (rs.next()) {
-            firstName = rs.getString("f_name");
-            lastName = rs.getString("l_name");
-            password = rs.getString("password");
-            email = rs.getString("email");
-            id = rs.getString("id");
-            staff = rs.getBoolean("staff");
+            user = new UserBuilder()
+                    .withUniqueId(rs.getString("id"))
+                    .withFirstName(rs.getString("f_name"))
+                    .withLastName(rs.getString("l_name"))
+                    .withEmail(rs.getString("email"))
+                    .withEncodedPassword(rs.getString("password"))
+                    .isStaff(rs.getBoolean("staff"))
+                    .build();
         }
-
-        User user = new UserBuilder()
-                .withFirstName(firstName)
-                .withLastName(lastName)
-                .withEmail(email)
-                .withPassword(password)
-                .isStaff(staff)
-                .build();
-
-        user.setId(id);
-
         return user;
     }
 
@@ -73,7 +61,7 @@ public class UserRepositoryImpl implements UserRepository {
     public boolean isEmailValid(String emailToken) throws SQLException {
         String fetchTokenQuery = "SELECT * FROM users WHERE (email= ?)";
         PreparedStatement ps = DatabaseConfig.prepareStatement(fetchTokenQuery);
-        ps.setString(1, emailToken);
+        ps.setString(1, emailToken.toLowerCase());
         ResultSet rs = ps.executeQuery();
 
         return !rs.next();

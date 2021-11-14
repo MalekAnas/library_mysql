@@ -33,6 +33,7 @@
                 <Insets bottom="30.0" />
             </VBox.margin>
         </PasswordField>
+      <Label fx:id="registration_status" prefHeight="30.0" prefWidth="270.0" />
         <Button fx:id="register_btn" mnemonicParsing="false" onAction="#registerUser" text="Register" />
         <Button fx:id="login_btn" mnemonicParsing="false" onAction="#switchToLogin" text="Login" />
     </children>

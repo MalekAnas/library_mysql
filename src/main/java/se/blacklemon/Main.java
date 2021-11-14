@@ -14,7 +14,7 @@ public class Main {
                 .withFirstName("Alina")
                 .withLastName("Minkova")
                 .withEmail("alina@gmail.com")
-                .withPassword("aswqwe")
+                .withEncodedPassword("aswqwe")
                 .isStaff(true)
                 .withUniqueId()
                 .build();

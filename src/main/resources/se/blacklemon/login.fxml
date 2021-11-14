@@ -11,7 +11,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <TextField fx:id="emali_tf" promptText="E-mail">
+      <TextField fx:id="email_tf" promptText="E-mail">
          <VBox.margin>
             <Insets bottom="60.0" />
          </VBox.margin>
